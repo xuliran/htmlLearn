@@ -1,0 +1,457 @@
+<!-- 文档类型声明DTD -->
+<!DOCTYPE html>
+<!-- lang 语言 -->
+<html lang="en">
+
+<head>
+    <!-- 网页的配置项 -->
+    <!-- meta元标签，设置基础的配置 charset 字符集 gb2312(gbk)包含汉字，英语等少数语言，utf-8包含所有语言 -->
+    <!-- utf-8 一个汉字占3个字节， gbk占两个字节，Live server 不支持gbk -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO 搜索引擎优化， 设置关键词和页面描述，可以提高搜索排名 -->
+    <!-- 关键字 -->
+    <meta name="Keywords" content="我的网页，1,1，">
+    <!-- 描述 成为搜索引擎中的简介-->
+    <meta name="Description" content="我的网页，1,1，">
+    <!-- 网页的标题 文字显示在浏览器的标签栏上，是搜索引擎收录网站时显示的标题-->
+    <title>练习html</title>
+
+    <!-- css样式 -->
+    <!-- css 书写位置：内嵌式，嵌入html标签中 -->
+    <!-- 外链式 将css单独存储为.css文件，然后用 link 标签引入, 优点多个html网页可以共用一个css文件 -->
+    <link rel="stylesheet" href="./css/cssTest.css">
+    <!-- 导入式 不常用 先加载html后渲染 -->
+    <!-- <style>
+        @import url(css/cssTest.css);
+    </style> -->
+    <!-- 行内式， 将style直接写在标签上 -->
+
+    <style type="text/css">
+        
+        p {
+          color: blue;
+        }
+
+        .spec {
+            color: green;
+            font-weight: bold;
+            font-size: 20;
+            font-style: italic;
+        }
+
+        table, tr, td{
+            border-collapse: collapse;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- body中书写网页的内容 -->
+    <!-- 网页的终点内容放在 h1标签，h1标签一般在页面中放一个 -->
+    <h1>一级标题</h1>
+    <h2 style="color: red;">二级标题</h2>
+    <h3>三级标题</h3>
+    <!-- p标签不能嵌套h和p标签 -->
+    <p class="spec">段落</p>
+    <div>将标签和其他标签分隔开</div>
+    <!-- 标签文字和文字间的空格会变成一个，标签内壁和文字间的空格会被忽略 -->
+    <!-- 转义字符 &lt; &gt; &nbsp; &copy; -->
+    <p>&lt; &gt; &nbsp; &copy;</p>
+
+    <!-- 无序列表，un order list ul和li是组合标签 type="circle" -->
+    <ul>
+        <li>
+            <h3>面包</h3>
+            <ul>
+                <li>无糖面包</li>
+                <li>全麦面包</li>
+                <li>麻薯</li>
+            </ul>
+        </li>
+        <li>
+            <h3>牛奶</h3>
+            <ul>
+                <li>低脂牛奶</li>
+                <li>脱脂牛奶</li>
+                <li>儿童牛奶</li>
+            </ul>
+        </li>
+        <li>鸡蛋</li>
+        <li>水果</li>
+    </ul>
+
+    <!-- 有序列表 , type 序号类型， start 开始位置 -->
+    <ol type="1" start="10" reversed>
+        <li>小幕</li>
+        <li>小明</li>
+        <li>小红</li>
+    </ol>
+
+    <ol type="1">
+        <li>小幕</li>
+        <li>小明</li>
+        <li>小红</li>
+    </ol>
+
+    <ol type="1">
+        <li>小幕</li>
+        <li>小明</li>
+        <li>小红</li>
+    </ol>
+
+    <!-- 定义列表 -->
+    <dl>
+        <dt>北京</dt>
+        <dd><p id="ddDesc">我国首都，政治中心，文话中心 </p></dd>
+        <dt>北京</dt>
+        <dd>我国首都，政治中心，文话中心</dd>
+        <dt>北京</dt>
+        <dd>我国首都，政治中心，文话中心</dd>
+    </dl>
+    <!-- img, alt 供视力不方便的用户朗读网页的时候朗读alt中的文本，图片路径不存在时显示alt中的文本； src 图片的路径; width, height -->
+    <!-- img支持的图片格式 .bmp,.jpeg(.jpg),.png,.svg,.webp -->
+    <!-- 相对路径， ../代表上级文件夹， ./代表当前文件夹 -->
+    <p>
+        段落图片
+        <img src="./images/httpDelay.png" alt="图片" width="30%">
+    </p>
+    <p>
+        一副图像
+        <img src="http://climg.mukewang.com/58c112ed0001370f03000300.jpg" width="30%">
+    </p>
+    <p>
+        一副动画图像
+        <img src="http://climg.mukewang.com/58c11324000144f703550220.jpg" width="50" height="50" alt="马图">
+    </p>
+
+    <!-- 超链接 a 标签， href 指向网页的地址，支持相对路径和绝对路径, href 值为#号时为锚点，若值为URl+#+...则跳转到其他页面的锚点位置，href指向让，zip，txt则为下载链接自动下载；添加啊’mailto:‘前缀，则自动打开邮件相关软件 ；若有'tel:'前缀，则是电话链接，自动打开软键盘-->
+    <!-- title表示a标签的悬停提示 -->
+    <!-- target  "_blank"在新窗口中打开网页-->
+    <p>
+        <a href="https://www.baidu.com" title="百度">点击跳转百度</a>
+        <a href="./htmlTest.html" target="_blank">点击跳转htmlTest</a>
+        <!-- 给图片设置超链接 -->
+        <a href="./htmlTest.html" target="_blank">
+            <img src="http://climg.mukewang.com/58c11324000144f703550220.jpg" width="50" height="50" alt="马图">
+        </a>
+    </p>
+    <!-- 作业练习 -->
+    <p>
+        <a href="http://www.imooc.com" title="慕课网，只学有用的">慕课网</a>
+        <a title="T在线教育">imooc</a>
+    </p>
+
+    <p>
+        <a href="#top">返回顶部</a>
+    </p>
+
+    <!-- 音频 controls表示显示播放控件， 标签对中显示不支持audio标签的文字 autoplay 是否自动播放 loop循环播放-->
+    <audio controls src="">抱歉，您的浏览器不支持audio标签，请升级浏览器</audio>
+
+    <audio controls>
+        <source src="" type="audio/ogg">
+    </audio>
+
+    <!-- 视频 video  controls表示显示播放控件 autoplay 是否自动播放 loop循环播放 width-->
+    <video controls src="">抱歉，您的浏览器不支持video标签，请升级浏览器</video>
+
+    <!-- source元素为音频和视频定义媒体资源，改标签允许规定多个格式的音视频文件，供浏览器自己选择，如果浏览器支持所有格式，则默认显示第一个 -->
+
+    <!-- 区块标签 -->
+    <section>文档的区域，比div大</section>
+    <article>文档的核心内容会被搜索引擎抓取</article>
+    <aside>文档的非必要相关内容，比如广告等</aside>
+    <nav>导航条</nav>
+    <header>页头</header>
+    <main>网页核心部分</main>
+    <footer>页脚</footer>
+
+    <!-- 语义化标签 -->
+    <span></span>
+    <b>加粗</b>
+    <u>下划线</u>
+    <i>倾斜</i>
+    <strong>重要</strong>
+    <em>强调</em>
+    <mark>标记</mark>
+    <figure>
+        <img>
+        <figcaption></figcaption>
+    </figure>
+
+    <!-- 表单标签  action 表示表单提交到后台的网址 method 表单提交的方式， get，post, required代表必填项-->
+    <!-- input  type="text" 但行文本框 disabled 表示不能与用户交互-->
+    <!-- type="radio" 表示单选按钮 checked表示默认被选中 -->
+    <!-- label 将文字与单选按钮绑定, h5中不需要for，html4需要for -->
+    <!-- type="checkbox" 复选框 -->
+    <!-- type="password" 密码框 -->
+
+    <form action="" method="get">
+        <p>请输入你的姓名 <input type="text" placeholder="请输入" value="xx"></p>
+        <p><label><input type="radio" name="单选" value="0" required>1</label></p>
+        <p><label><input type="radio" name="单选" value="1">2</label></p>
+        <p><label><input type="radio" name="单选" value="2">3</label></p>
+        <label><input type="checkbox" name="多选" value="0">A</label>
+        <label><input type="checkbox" name="多选" value="1">B</label>
+        <label><input type="checkbox" name="多选" value="2">C</label>
+        <p>请输入密码 <input type="password" placeholder="请输入"></p>
+
+        <p>性别
+            <label>男<input type="radio" name="sex" value="男"></label>
+            <label>女<input type="radio" name="sex" value="女"></label>
+        </p>
+
+        <p>我喜欢的水果</p>
+        <p><label><input type="checkbox" name="fruite" value="苹果">苹果</label></p>
+        <p><label><input type="checkbox" name="fruite" value="梨">梨</label></p>
+        <p><label><input type="checkbox" name="fruite" value="桃子">桃子</label></p>
+
+        <!-- 下拉菜单 -->
+        <p>
+            请选择最喜欢的变成语言
+            <select name="select" id="">
+                <option value="c" selected>C</option>
+                <option value="c++"> C++</option>
+                <option value="Java">Java</option>
+            </select>
+        </p>
+
+        <!-- 多行文本框 cols 行数  rows 列数-->
+        <p>留言
+            <textarea name="textarea" cols="30" rows="10"></textarea>
+        </p>
+
+        <!-- 三种按钮 -->
+        <!-- type="button" 和  <button></button> 一样 -->
+        <input type="button" value="普通按钮">
+        <button>普通按钮</button>
+        <input type="submit" value="提交表单">
+        <input type="reset" value="重置表单">
+
+        <!-- h5中新增的表单控件 -->
+
+        <input type="color" >
+        <input type="date" >
+        <input type="time">
+        <input type="datetime-local">
+        <input type="email" >
+        <input type="number" min="10" max="110">
+        <input type="range" min="0" max="100">
+        <input type="search">
+        <input type="url">
+        
+        <p>
+            <input type="text" list="dataList">
+            <datalist id="dataList">
+                <option value="山东">
+                <option value="山西">
+                <option value="河南">
+                <option value="河北">
+                <option value="湖南">
+                <option value="湖北">
+            </datalist>
+        </p>
+
+        <p>请做自我介绍</p>
+        <p>
+            <textarea id="" cols="20" rows="3" placeholder="请介绍自己"></textarea>
+        </p>
+
+    </form>
+
+    <!-- 表格 -->
+    <!-- border 边框 -->
+    <!-- th表头表格 -->
+
+    <table border="1" width="400">
+        <caption>我是表格的标题</caption>
+        <!-- thead表头 -->
+        <thead>
+            <tr>
+                <th colspan="2">第一季度</th>
+                <th colspan="2">第二季度</th>
+                <th colspan="2">第三季度</th>
+                <th colspan="2">第四季度</th>
+            </tr>
+            <tr>
+                <th>国内</th>
+                <th>国外</th>
+                <th>国内</th>
+                <th>国外</th>
+                <th>国内</th>
+                <th>国外</th>
+                <th>国内</th>
+                <th>国外</th>
+
+            </tr>
+        </thead>
+        <tr>
+            <!-- colspan代表td，th 的列跨度 -->
+            <td colspan="3">A</td>
+            <!-- <td>B</td>
+            <td>C</td> -->
+            <td>D</td>
+        </tr>
+        <tr>
+            <!-- rowspan代表行跨度 -->
+            <td>E</td>
+            <td rowspan="2">F</td>
+            <td>G</td>
+            <td>H</td>
+        </tr>
+        <tr>
+            <td>H</td>
+            
+            <td>J</td>
+            <td>K</td>
+        </tr>
+        <tr>
+            <td>L</td>
+            <td>M</td>
+            <td>N</td>
+            <td>O</td>
+        </tr>
+    </table>
+
+    <table border="1" width="400">
+        <caption>我是表格的标题</caption>
+        <!-- thead表头 -->
+        <thead>
+            <tr>
+                <th >第一季度</th>
+                <th >第二季度</th>
+                <th >第三季度</th>
+                <th >第四季度</th>
+            </tr>
+        </thead>
+        <tr>
+            <!-- colspan代表td，th 的列跨度 -->
+            <td colspan="3">A</td>
+            <!-- <td>B</td>
+            <td>C</td> -->
+            <td>D</td>
+        </tr>
+        <tr>
+            <!-- rowspan代表行跨度 -->
+            <td>E</td>
+            <td rowspan="2">F</td>
+            <td>G</td>
+            <td>H</td>
+        </tr>
+        <tr>
+            <td>H</td>
+            
+            <td>J</td>
+            <td>K</td>
+        </tr>
+        <tr>
+            <td>L</td>
+            <td>M</td>
+            <td>N</td>
+            <td>O</td>
+        </tr>
+    </table>
+
+    <table border="1" width="400">
+        <caption>我是表格的标题</caption>
+        <!-- thead表头 -->
+        <thead>
+            <tr>
+                <th rowspan="2"></th>
+                <th colspan="2">第一季度</th>
+                <th colspan="2">第二季度</th>
+                <th colspan="2">第三季度</th>
+                <th colspan="2">第四季度</th>
+            </tr>
+            <tr>
+                <th>国内</th>
+                <th>国外</th>
+                <th>国内</th>
+                <th>国外</th>
+                <th>国内</th>
+                <th>国外</th>
+                <th>国内</th>
+                <th>国外</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <th>手机</th>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <th>农产品</th>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th rowspan="2">汇总</th>
+                <td>2</td>
+                <td>4</td>
+                <td>6</td>
+                <td>8</td>
+                <td>10</td>
+                <td>12</td>
+                <td>14</td>
+                <td>16</td>
+            </tr>
+            <tr>
+                <td colspan="2">6</td>
+                <td colspan="2">14</td>
+                <td colspan="2">22</td>
+                <td colspan="2">30</td>
+            </tr>
+        </tfoot>
+        
+    </table>
+
+    <div class="fs">
+        我是div
+    	<p>我是div内部的p<span>我是span</span></p>
+    	<p>我是div内部的p<span>我是span</span></p>
+    </div>
+    <p class="fs">我是p<span>我是span</span></p>
+    <p class="fs">我是p<span>我是span</span></p>
+    <h3>我是h3</h3>
+
+    <div>
+        <a href="http://www.imooc.com">点击一下</a>
+    </div>
+    <p>
+        <a href="http://www.baidu.com">百度一下</a>
+    </p>
+
+    <div>我是第一个</div>
+    <p>我是第一个p，我要变红色</p>
+        <p>我是第二个p</p>
+    <div>我是第二个
+        
+    </div>
+    <p>我是第三个p，我要变红色</p>
+        <p>我是第四个p</p>
+        <p>我是第五个p</p>
+    
+</body>
+
+
+
+</html>

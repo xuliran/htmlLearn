@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网页练习</title>
+    <style>
+        /* ol li:first-child {
+            color: red;
+        }
+        ol li:nth-child(2) {
+            color: green;
+        }
+        ol li:last-child {
+            color: blue;
+        }
+        thead{
+            background-color: yellow;
+        }
+        tbody tr:nth-child(odd){
+            color: orange;
+        }
+        tbody tr:nth-child(even){
+            color: green;
+        }
+
+        input:hover {
+            border: 1px solid red;
+        }
+
+        p:first-child>input:focus {
+            background-color: orange;
+        }
+
+        p:nth-child(2)>input:focus {
+            background-color: yellow;
+        }
+
+        div{
+			width: 200px;
+			height:150px;
+			background-color: #eee;
+			margin-top: 5px;
+		}
+		section{
+			width: 200px;
+			height: 30px;
+			margin-bottom: 5px;
+			background-color: #ff0;
+		} */
+
+        /* h1 {
+            color: green;
+        }
+        
+        .devider {
+            background-color: grey;
+            height: 1px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #009;
+        }
+        .score {
+            color: orange;
+        } */
+
+         * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* .p1, .p2, .p3 {
+            text-indent: 2em;
+            font-family: serif, "微软雅黑";
+        }
+        .p1 {
+            color: orange;
+            line-height: 20px;
+        }
+        .p2 {
+            color: green;
+            line-height: 1.5em;
+        }
+
+        .p3 {
+            color: red;
+            line-height: 200%;
+        }
+
+        .div {
+            width: 100px;
+            height: 30px;
+            background-color: red;
+            padding: 10px;
+            border: 1px solid black;
+        }
+
+        .btn {
+            width: 100px;
+            height: 30px;
+            background-color: red;
+            padding: 10px;
+            border: 1px solid black;
+        } */
+
+        .navi {
+            width: 960px;
+            height: 40px;
+            background-color: rgb(190, 134, 31);
+            margin: 40px auto;
+        }
+
+        .navi ul {
+            list-style: none;
+        }
+
+        .navi ul li {
+            float: left;
+            width: 120px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            
+        }
+        .navi ul li a{
+            text-decoration: none;
+            display: block;    
+            width: 120px;
+            height: 40px;
+            color: white;        
+        }
+
+        .navi ul li a:hover {
+            border-bottom: 3px solid black;
+            position: relative;
+            top: -3px;
+        }
+       
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <p>家用电器</p>
+            <ol>
+                <li>冰箱</li>
+                <li>洗衣机</li>
+                <li>空调</li>
+            </ol>
+        </li>
+        <li>
+            <p>清洁用品</p>
+            <ol>
+                <li>洗衣液</li>
+                <li>消毒液</li>
+                <li>洗厕液</li>
+            </ol>
+        </li>
+        <li>
+            <p>妇婴用品</p>
+            <ol>
+                <li>奶粉</li>
+                <li>纸尿裤</li>
+                <li>奶瓶</li>
+            </ol>
+        </li>
+    </ul>
+
+    <table border="1" cellspacing="0" width="200">
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年纪</th>
+            </tr>
+        </thead>
+        <tbody> 
+            <tr>
+                <td>1</td>
+                <td>张三</td>
+                <td>男</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>李四</td>
+                <td>女</td>
+                <td>11</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>赵五</td>
+                <td>男</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>王二</td>
+                <td>男</td>
+                <td>12</td>
+            </tr>
+        </tbody>  
+    </table>
+
+    <form action="" method="post">
+        <p>用户名：<input type="text"></p>
+        <p>密码：<input type="text"></p>
+    </form>
+
+    <div>
+		<section>one</section>
+		<section>two</section>
+	</div>
+	<div></div>
+	<div>
+		<section>three</section>
+		<section>four</section>
+		<section>five</section>
+		<section></section>
+	</div>
+    <h1>
+        大话西游之大圣娶亲的影评
+    </h1>
+    <p><a  href="">热门</a>/<a href="">最新</a>/<a href="">好友</a></p>
+
+    <div class="devider"></div>
+    <div class="comment">
+        <p><a>罗红霉素</a><span class="score">★★★★★</span><span class="time">2010-07-26</span></p>
+        <p>有人跟我比赛背台词吗</p>
+        <p>阅读：1615&nbsp<a href="">有用</a></p>
+        <div class="devider"></div>
+    </div>
+    <div class="comment">
+        <p><a>十七只猫和鱼</a><span class="score">★★★★★</span><span class="time">2007-07-26</span></p>
+        <p>任何时候任何场合都可以看的电影</p>
+        <p>阅读：515&nbsp<a href="">有用</a></p>
+        <div class="devider"></div>
+    </div>
+    <div class="comment">
+        <p><a>暖男家</a><span class="score">★★★★★</span><span class="time">2006-07-26</span></p>
+        <p>一定有一些电影，永远都不会被超越</p>
+        <p>阅读：1615&nbsp<a href="">有用</a></p>
+        <div class="devider"></div>
+    </div>
+
+    <div>
+        <h2>1.《三体》</h2>
+        <p class="p1">
+          《三体》是刘慈欣创作的系列长篇科幻小说，由《三体》、《三体Ⅱ•黑暗森林》、《三体Ⅲ•死神永生》组成，第一部于2006年5月起在《科幻世界》杂志上连载，第二部于2008年5月首次出版，第三部则于2010年11月出版。
+          作品讲述了地球人类文明和三体文明的信息交流、生死搏杀及两个文明在宇宙中的兴衰历程。其第一部经过刘宇昆翻译后获得了第73届雨果奖最佳长篇小说奖。
+        </p>           
+    </div>
+    <div>
+        <h2>2.《盗墓笔记》</h2>
+        <p class="p2">
+          《盗墓笔记》系列是南派三叔的代表作，其堪称近年来中国出版界的经典之作，获得百万读者狂热追捧。南派三叔也凭此作名满天下，跻身中国超级畅销书作家行列。
+        </p>           
+    </div>
+    <div>
+        <h2>3.《福尔摩斯侦探小说全集》</h2>
+        <p class="p3">
+          本套书分为上中下三卷，主要章节包括了上卷：血字分析、第一部 原陆军军医部医学博士约翰•H•华生回忆录、第二部 圣徒的故园、四签名、冒险史、巴斯克维尔的猎犬；中卷：回忆录、福尔摩斯的归来；下卷：最后奉献、恐怖谷、第一部 伯尔斯通的悲剧、第二部 亡命党徒、新探索详细内容。
+        </p>           
+    </div>
+
+    <div class="div">
+
+    </div>
+    <button class="btn"></button>
+
+    <div class="navi">
+        <ul class="naviUl">
+            <li class="naviLi"><a href="">导航网站</a></li>
+            <li class="naviLi"><a href="">导航网站</a></li>
+            <li class="naviLi"><a href="">导航网站</a></li>
+            <li class="naviLi"><a href="">导航网站</a></li>
+            <li class="naviLi"><a href="">导航网站</a></li>
+            <li class="naviLi"><a href="">导航网站</a></li>
+            <li class="naviLi"><a href="">导航网站</a></li>
+            <li class="naviLi"><a href="">导航网站</a></li>
+        </ul>
+    </div>
+    
+    
+</body>
+</html>

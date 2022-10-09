@@ -1,0 +1,300 @@
+/* 选择器 */
+/* 清除默认的margin，padding，效率低， 不如并列选择器 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body, ul, p {
+    margin: 0;
+    padding: 0;
+}
+/* css2.1 */
+/* 标签选择器（元素选择器，类型选择器） 如下选择页面上所有的h2标签，常用于标签的初始化 */
+h2 {
+    color: red;
+    /* background-color: yellow; */
+}
+
+ul {
+    /* 去除ul标签的小圆点， list没有style */
+    list-style: none;
+}
+
+a {
+    /* 去除a标签的下划线， 文本装饰器 */
+    text-decoration: none;
+    color: #333;
+}
+/* id选择器, id在页面上只能唯一 */
+#ddDesc {
+    color: aqua;
+    /* 文字倾斜 */
+    font-style: italic;
+}
+/* class选择器 多个标签可以有相同的类名， 一个标签页可以有多个类名，样式的顺序和css标签的顺序有关，后面的覆盖前面的 */
+.spec {
+    background-color: bisque;
+}
+
+/* 原子类 在做网页项目中，可以将所有的常用字号，文字颜色，行高，外边距，内边距都设置为单独的抽象类, html标签可以按需选择 */
+.fs12 {
+    font-size: 12px;
+}
+
+.color_333 {
+    color: #333;
+}
+
+/* 复合选择器 */
+/* 后代选择器 .box .spec选择类名为box标签内部点类名为spec的标签，所有的后代儿子，孙子 */
+.box .spec {
+    color: red;
+}
+
+/* 交集选择器 li.spec 选择既是li标签，也属于spec类的标签 */
+li.spec {
+    color: red;
+}
+
+/* 并集选择器 ul, ol ', '选择所有的ul和ol标签 */
+ul, ol {
+    list-style: none;
+}
+/* 伪类 添加到选择器的描述性词语，指定要选择元素的特殊状态，超链接拥有四个状态 ':'表示伪类, link未选中，visited已选中，hover悬浮，active激活 love hate， lvha */
+a:link {
+    color: red;
+}
+a:visited {
+    color: green;
+}
+a:hover {
+    font-size: 30;
+}
+a:active {
+    color: orange;
+}
+
+/* css3 */
+/* 关系选择器 子选择器（只选择儿子标签）>, 相邻兄弟选择器（选择同一级别的紧跟在后面的标签） +， 通用兄弟选择器 选择同一级别的所有跟在后面的标签）~ */
+div>p {
+    color: red;
+}
+
+div+p{
+    color: red;
+}
+
+div~span{
+    color: red;
+}
+
+/* 序号选择器 */
+/* 第一个子元素 box1里面的第一个p */
+.box1 p:first-child {
+
+}
+/* 最后一个子元素 */
+.box1 p:last-child{
+
+}
+
+/* 第n个子元素 */
+.box1 p:nth-child(2) {
+
+}
+
+/* 从2开始每三个选一个 */
+.box1 p:child(3n + 2) {
+
+}
+/* 同种标签指定第n个子元素*/
+.box1 p:nth-of-type(3) {
+
+}
+
+/* 倒数第n个子元素 */
+.box1 p:nth-last-child(3) {
+
+}
+/* 同种标签倒数第n个子元素 */
+.box1 p:nth-last-of-type(3) {
+
+}
+/* 属性选择器 通过某个属性进行选择，比如 alt */
+img[alt] {
+
+}
+/* alt == "北京" */
+img[alt="北京"] {
+    
+}
+/* alt 以"北京"开头 */
+img[alt^="北京"] {
+    
+}
+/* alt 以"北京"结尾 */
+img[alt$="北京"] {
+    
+}
+/* alt 中有"北京"结尾 */
+img[alt*="北京"] {
+    
+}
+/* alt 中有空格隔开的"北京"字样 */
+img[alt~="北京"] {
+    
+}
+/* alt 以"北京-"开头 */
+img[alt|="北京"] {
+    
+}
+/* css3新增伪类 */
+/* 选择空标签 */
+p:empty {}
+/* 选择获取焦点的标签 */
+input:focus {}
+/* 选择当前有效的标签 */
+button:enabled{}
+/* 选择当前无效的标签 */
+button:disabled{}
+/* 选择当前已勾选的单选按钮或复选框 */
+input:checked{}
+/* 选择根元素，即html */
+:root
+/* 伪元素 */
+/* a标签所有子元素前加 ☆*/
+a::before {
+    content: "☆";
+    color:red;
+}
+
+/* 文档中被用户高亮的部分 */
+p::selection {
+    background-color: yellow;
+}
+
+a::after {
+    content: "❤️";
+}
+/* 选择块级元素第一行的第一个字母 */
+p::first-letter {
+    font-size: 30px;
+}
+/* 选中块级元素第一行的所有字母 */
+p::first-line {
+    color: palegoldenrod;
+}
+/* 层叠性和选择器权重计算 */
+/* 层叠性：多个选择器作用于一个标签，效果叠加 */
+/* 权重 行内样式>内部样式 id>class>标签 通过id，class 标签的个数计算权重，id多占优势，id一样多比class，class一样多比标签， 权重相同就近原则 */
+/* !important 提升权重 */
+
+div, p, h3 {
+    color: green !important;
+}
+
+.fs p span {
+    color: pink;
+}
+
+p.fs {
+    font-style: italic;
+}
+
+div a:hover {
+    font-size: 30px;
+    border: 1px solid red;
+}
+
+p a:hover{
+    font-weight: bold;
+    
+}
+
+div+p {
+    color: red;
+}
+
+/* 属性 */
+
+/* 常用文本样式属性 */
+/* 字体属性详解 */
+/* 段落和行相关属性 */
+/* 继承性 */
+p {
+    /* 颜色， 英语单词，十六进制， rgb， rgba等 */
+    color: #333;
+    color: rgba(255, 0, 0, .65);
+    /* 字号 */
+    font-size: 20px;
+    /* 粗细, 有些字体默认加粗 */
+    font-weight:bold;
+    /* 字体区倾斜，italic 倾斜 normal不倾斜  */
+    font-style: italic;
+    /* 文本修饰线 underline 下划线， none没有下划线 through 删除线*/
+    /* text-decoration: line-through; */
+    /* 字体 英文字体放在前面，中文字体放在后面, 字体必须是计算机中已经安装好的字体 */
+    /* 定义字体 用@font-face定义字体 */
+    font-family: serif, 'Times New Roman', "微软雅黑";
+    /* 首行缩进量， em表示字符宽度 */
+    text-indent: 2em;
+    /* 行高, 字在行高中居中  30px , 没有单位表示字号的倍数*/
+    /* 单行文本垂直居中， 行高等于盒子高就可以了 */
+    line-height: 1.5;
+    /* 文本水平居中 */
+    /* text-align: center; */
+    /* 倾斜 加粗 字号/行高 字体,字体， 必须设置font-size和字体才有效， 连写时，行高写到font中或font下面 */
+    font: italic bold 20px/1.5;
+    /* 上右下左， 上（左右）下， （上下）（左右）， 一个表示四个方向 */
+    /* padding: 10px 20px 30px 40 px;  */
+    /* 盒子水平居中*/
+    /* margin: 0 auto; */
+    /* border-sizing border-box表示盒子的总宽高， content-box默认值 */
+    /* box-sizing: border-box;
+    box-sizing: content-box; */
+    /* display 行内元素inline， 块级元素 block, 行内块（img） inline-block， 即能设置宽高，又能并排显示*/
+    display: inline-block;
+    /* 元素的隐藏  display: none 元素彻底放弃位置，如同没有写它的标签一样， visibility: hidden 可以隐藏，但是不放弃自己的位置*/
+    /* display: none; */
+    /* visibility: hidden; */
+}
+
+/* 继承性 color, font-, list-. text-. line- 开头的属性具有继承性， 通常给body设置属性，则代表网页的默认样式 */
+/* 继承性：就近原则，只要没有选定标签，就是继承，在继承的情况下，选择器权重计算失效，采用就近原则， 选择的离标签越近，就越容易被渲染 */
+/* p标签内有a标签时，要为a标签直接设置样式，因为a标签有默认样式，设置p标签的样式对a标签并不生效 */
+
+/* 盒模型 width，height表示盒子内容的宽高 */
+/* 盒子的总宽度 = width + 左右padding + 左右border；盒子的总高度 = height + 上下padding + 上下border */
+/* 块级元素（div，h，li等）没有width属性时，会撑满屏幕， width不可以被继承 */
+/* height属性 不设置，自动被内容撑开，没有内容时默认是0，高度可以被省略掉 */
+/* padding内边距 */
+/* margin 外边距， 盒子border之外的距离， margin塌陷，小的maring会塌陷到大的margin中，从而margin不叠加，以大值为准， 上下方向有塌陷现象，左右方向没有 body，ul，p有默认的margin */
+/* 行内元素和块级元素 */
+/* 行内元素， 并排显示，不能设置宽高 */
+/* 块级元素，不能并排显示，可以设置宽高 */
+/* float 设置并排，要把所有的 */
+/* BFC */
+/* float时怎么形成BFC， 撑起父标签 */
+/* 1. float的值不是none */
+/* 2. position的值不是static或relative是absolute  靠谱 */
+/* 3. display的值是inline-block， flex或者inline-flex */
+/* 4. overflow：hidden 靠谱， 溢出边框的内容隐藏， 单盒子padding部分的内容还在 */
+/* BFC作用：取消盒子的margin塌陷（用div包裹盒子，设置div的overflow：hidden）， 阻止元素被浮动的元素覆盖，防止浮动的元素不能撑起父元素 */
+/* 浏览器差异， IE6,7使用zoom：1 让盒子拥有layout */
+
+/* 清除浮动的方法 1. 形成BFC 2. 给后面的父盒子设置clear: both, 消除上下左右的影响， margin会失效， 3. (添加伪元素)使用::after {content:''; clear: both; display:block} 4.在div之间隔离div，然后将隔离的div clear：both */
+
+/* 相对定位， 盒子相对自己原来的位置进行调整，称为相对定位, 相对定位会在原来的位置留坑， 渲染出来的位置不会对其他元素有任何影响， 相对定位不脱离标准流， 微调元素位置， 相对定位可以相当于绝对定位的参考盒子 */
+/* div {
+    position: relative;
+    top: 100px;
+    left: 100px;
+} */
+
+/* 绝对定位：盒子可以在浏览器中以坐标的位置精准描述，拥有自己的绝对位置 */
+/* div {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+} */
