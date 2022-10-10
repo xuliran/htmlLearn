@@ -298,3 +298,120 @@ p {
     top: 100px;
     left: 100px;
 } */
+
+/* border */
+/* 利用边框制作三角形 */
+.box1 {
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-left-color: red;
+    margin-bottom: 20px;
+}
+
+.box2 {
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.box3 {
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    border-radius: 40px 0px 40px 0px;
+    margin-bottom: 20px;
+}
+
+.box4 {
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    border-top-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    margin-bottom: 20px;
+}
+
+.box5 {
+    width: 200px;
+    height: 100px;
+    border: 2px solid black;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.box6 {
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    border-radius: 10px 20px 50px;
+    margin-bottom: 20px;
+}
+
+.box7 {
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    border-radius: 50px 10px;
+    margin-bottom: 20px;
+}
+
+.back_div {
+    width: 120px;
+    height: 120px;
+    /* overflow: hidden; */
+    position: relative;
+}
+
+.box8 {
+    width: 0;
+    height: 0;
+    border: 60px solid transparent;
+    border-left-color: pink;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+}
+
+.box9 {
+    width: 0;
+    height: 0;
+    border: 60px solid transparent;
+    border-right-color: pink;
+    border-radius: 50px;
+    position: absolute;
+    left: 0px;
+    top: 0;
+    margin-bottom: 20px;
+}
+
+/* border-radius有三个值的话，第一个表示左上角，第二个表示右上和左下，第三个表示右下
+    有两个值的话，第一个表示左上和右下，第二个表示右上和左下 */
+
+/*
+    box-shadow: inset（内阴影） x偏移量 y偏移量 模糊度 {阴影延展} 颜色
+ */
+
+ .box10 {
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    border-radius: 50px 10px;
+    margin-bottom: 50px;
+    box-shadow: inset 10px 4px 20px rgba(255, 0, 0, .65), 10px 4px 20px rgba(0, 0, 0, .65), 10px 4px 20px 30px rgba(0, 255, 0, .65);
+}
+
+.box11 {
+    width: 200px;
+    height: 200px;
+   background-color: chartreuse;
+}
+
+.box11:hover {
+    box-shadow: 10px 4px 20px rgba(0, 0, 0, .65);
+}
