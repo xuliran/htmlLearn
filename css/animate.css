@@ -1,0 +1,593 @@
+/* 
+transition 过渡， 在一个元素不同样式之间变化自动添加（补间动画）,从IE10开始兼容 
+transition: 要过渡的属性 动画的总时长（1s） 变化速度的曲线 延迟时间（0s）;
+所有数值类型的属性都可以参与过度width, height,left,top,border-radius,颜色，绝对定位，变形（2D，3D）
+
+小属性
+transition-property: ;
+transition-duration: ;
+ transition-timing-function: ;
+ transition-delay: ;
+*/
+
+/* 过渡和动画的区别 
+    过渡需要事件触发，动画不需要
+    过渡只有开始和结束两个状态，而动画可以根据百分比设置多个状态
+    动画可以多次执行，过渡只可以执行一次
+    动画可以设置结束状态，过渡结束后回到原点
+*/
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+div {
+    width: 100px;
+    height: 100px;
+    background-color: orange; 
+    margin-bottom: 20px;
+   
+}
+
+.box1 {
+    transition: width 5s linear 0s;
+}
+.box1:hover {
+    width: 200px;
+}
+
+.box2 p {
+    width: 100px;
+    height: 100px;
+    transition: left 5s linear 0s;
+    background-color: yellow;
+    left: 0;
+    position: relative;
+}
+
+.box2:hover p {
+    left: 200px;
+}
+
+div.box3 {
+    transition: background-color 1s linear 1s;
+}
+
+div.box3:hover {
+    background-color: green;
+}
+
+div.box4 {
+    transition: border-radius 1s linear 0s;
+    border-radius: 0;
+}
+
+div.box4:hover {
+    border-radius: 50px;
+}
+
+div.box5 {
+    transition: transform 1s linear 0s;
+    border-radius: 0;
+}
+
+div.box5:hover {
+    transform: scale(2) rotate(360deg);
+}
+
+div.box6 {
+    perspective: 300px;
+}
+
+div.box6 p{
+    width: 100px;
+    height: 100px;
+    color: white;
+    transform: rotateX(0deg) rotateY(0deg);
+    background-color: green;
+    transition: transform 1s linear 0s;
+}
+
+div.box6:hover p{
+    transform: rotateX(360deg) rotateY(360deg);
+}
+
+/* all表示素有属性都过渡 */
+div.box7 {
+    border-radius: 0%;
+    transition: all 1s linear 0s;
+}
+
+div.box7:hover {
+    width: 200px;
+    height: 400px;
+    background-color: aqua;
+    border-radius: 50%;
+}
+
+div.box8 {
+    box-shadow: none;
+    transition: all 1s linear 0s;
+}
+
+div.box8:hover {
+    box-shadow: 4px 4px rgba(128, 128, 128, 0.3);
+    background-color: pink;
+}
+
+/* 过渡的缓动效果 
+https://cubic-bezier.com/#0,0,1,1  自动生成贝塞尔曲线
+*/
+div.box9 p {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    left: 0;
+    background:green;
+    /* transition: all 1s ease 0s; */
+    transition: left 1s cubic-bezier(.28,.86,1,-0.22) 0s;
+}
+
+div.box9:hover p{
+    left: 300px;
+}
+
+div.ul {
+    width: 1240px;
+    height: 300px;
+    margin: 20px auto;
+    background-color: white;
+}
+
+div.ul ul {
+    list-style: none;
+}
+
+div.ul div {
+    background-color: white;
+}
+
+div.ul ul li{
+    width: 400px;
+    height: 300px;
+    float: left;
+    margin-right: 20px;
+    position: relative;
+}
+
+div.ul ul li div.img{
+    width: 400px;
+    height: 300px;
+    background-color: green;
+    margin-bottom: 0px;
+}
+
+div.ul ul li div.img img{
+    width: 400px;
+    height: 300px;
+}
+
+
+div.ul ul li:last-child {
+    margin-right: 0px;
+}
+
+div.ul ul li div.info{
+    width: 370px;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+    margin-bottom: 0px;
+    padding-left: 30px;
+    line-height: 30px;
+    opacity: 0;
+    transition: opacity 1s ease 0s;
+}
+
+div.ul ul li:hover div.info {
+    opacity: 1;
+}
+
+.duck_box {
+    width: 300px;
+    height: 240px;
+    margin: 20px auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.duck_box .duck {
+    width: 300px;
+    height: 240px;
+}
+
+.duck_box .duck_info {
+    width: 300px;
+    height: 40px;
+    line-height: 40px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    position: absolute;
+    bottom: -40px;
+    padding-left: 30px;
+    transition: bottom 1s ease 0s;
+}
+
+
+.duck_box:hover .duck_info {
+    bottom: 0;
+}
+
+.box10 {
+    width: 488px;
+    height: 107px;
+    margin: 10px auto;
+    background-color: white;
+}
+
+.box10 ul  {
+    list-style: none;
+}
+
+.box10 ul li{
+    width: 107px;
+    height: 107px;
+    margin-right: 20px;
+    float: left;
+    position: relative;
+}
+
+.box10 ul li:last-child {
+    margin-right: 0px;
+}
+
+.box10 ul li img {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -30px;
+    margin-left: -30px;
+    transform: scale(1.0);
+    transition: transform 1s linear 0s;
+}
+
+.box10 ul li::before {
+    content: '';
+    width: 107px;
+    height: 107px;
+    display: block;
+    transform: rotate(0);
+    transition: transform 1s linear 0s;
+}
+
+.box10 ul li:nth-child(1)::before {
+    background-image: url(../images/a_1.png);
+}
+
+.box10 ul li:nth-child(2)::before {
+    background-image: url(../images/a_2.png);
+}
+
+.box10 ul li:nth-child(3)::before {
+    background-image: url(../images/a_3.png);
+}
+
+.box10 ul li:nth-child(4)::before {
+    background-image: url(../images/a_4.png);
+}
+
+.box10 ul li:hover::before {
+    transform: rotate(360deg);
+}
+
+.box10 ul li:hover img {
+    transform: scale(1.1);
+}
+
+.box11 {
+    width: 200px;
+    height: 200px;
+    margin: 10px auto;
+    background-color: white;
+    position: relative;
+    perspective: 1200px;
+}
+
+.box11 img {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 100px;
+}
+
+.box11 img.dog {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 1s linear 0s;
+}
+
+.no1 img.dog {
+    transform: rotateY(0deg);
+    transform-origin: 0 0;
+}
+
+.no1:hover img.dog {
+    transform: rotateY(-180deg);
+}
+
+.no2 img.dog {
+    transform: rotateY(0deg);
+    transform-origin: 100% 0;
+}
+
+.no2:hover img.dog {
+    transform: rotateY(180deg);
+}
+
+.no3 img.dog {
+    transform: rotateX(0deg);
+    transform-origin: 0 0;
+}
+
+.no3:hover img.dog {
+    transform: rotateX(180deg);
+}
+
+.no4 img.dog {
+    transform: rotateX(0deg);
+    transform-origin: 0 100%;
+}
+
+.no4:hover img.dog {
+    transform: rotateX(-180deg);
+}
+
+.duang {
+    margin: 10px auto;
+    text-align: center;
+    line-height: 100px;
+    font-weight: bold;
+    color: white;
+    transition: all 0.5s linear 0s;
+    border-radius: 0;
+    transform: scale(1);
+}
+
+.duang:hover {
+    border-radius: 50px;
+    transform: scale(2);
+    background-color: green;
+}
+
+/* 动画的定义和调用
+    可以使用@keyframes来定义动画 keyframe表示“关键帧”，在项目上线前，要不上@-webkit-这样的私有前缀
+    定义之后可以使用animation调用动画
+    animation: 动画名 时间 速度 延时 次数（1...或infinite（无限次））alternate(偶数次逆向执行) forwords动画执行后停止在该位置
+*/
+
+.box12:hover {
+    animation: r 2s linear 0s infinite alternate;
+}
+
+.box13:hover{
+    animation: changeColor 5s linear 0s infinite alternate;
+}
+
+@keyframes r {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes changeColor {
+    0% {
+        background-color: white;
+    }
+    20% {
+        background-color: yellow;
+    }
+    40% {
+        background-color: green;
+    }
+    60% {
+        background-color: grey;
+    }
+    80% {
+        background-color: orange;
+    }
+    100% {
+        background-color: aqua;
+    }
+}
+
+.box14 {
+    font-family: Arial;
+    font-size: 20px;
+    font-weight: bold;
+    position: fixed;
+    right: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0);
+    /* animation: shakeAnimate 1s linear 0.2s infinite forwards; */
+    animation: shakeAnimate 1s linear 0.2s infinite alternate;
+    bottom: 0;
+}
+
+@keyframes shakeAnimate {
+    0% {
+        transform: translateY(0px) rotate(90deg);
+    }
+
+    50% {
+        transform: translateY(10px) rotate(90deg);
+    }
+
+    60% {
+        transform: translateY(8px) rotate(90deg); 
+    }
+    70% {
+        transform: translateY(10px) rotate(90deg); 
+    }
+    80% {
+        transform: translateY(8px) rotate(90deg); 
+    }
+    90% {
+        transform: translateY(10px) rotate(90deg); 
+    }
+    100% {
+        transform: translateY(10px) rotate(90deg); 
+    }
+}
+
+div.box16 {
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    margin: 0 auto;
+    position: relative;
+}
+
+div.box16 .dengpao {
+    width: 96px;
+    height: 133px;
+    left: 50%;
+    margin-left: -50px;
+    top: 50%;
+    margin-top: -67px;
+    position: absolute;
+}
+
+div.box16 .guang {
+    width: 172px;
+    height: 128px;
+    left: 50%;
+    margin-left: -86px;
+    position: absolute;
+    animation: guangAnimate 1s linear 0.2s infinite alternate;
+}
+
+@keyframes guangAnimate {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+div.box17 {
+    width: 100%;
+    height: 500px;
+    background-color: white;
+    margin: 0 auto;
+    position: relative;
+}
+
+
+div.box17 .huojian {
+    width: 250px;
+    height: 220px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -110px;
+    margin-left: -125px;
+    animation: huojiang 1s linear 0s infinite alternate;
+}
+
+div.box17 .line1 {
+    width: 100px;
+    height: 2px;
+    background-color: blue;
+    transform: rotate(-45deg);
+    position: absolute;
+    margin-left: 1000px;
+    top: 80%;
+    opacity: 0;
+    animation: line 1s linear 0s infinite;
+    
+}
+div.box17 .line2 {
+    width: 100px;
+    height: 2px;
+    background-color: blue;
+    transform: rotate(-45deg);
+    position: absolute;
+    margin-left: 1000px;
+    top: 60%;
+    opacity: 0;
+    animation: line 1s linear 0.2s infinite;
+    
+}
+div.box17 .line3 {
+    width: 100px;
+    height: 2px;
+    background-color: blue;
+    transform: rotate(-45deg);
+    position: absolute;
+    margin-left: 1000px;
+    top: 30%;
+    opacity: 0;
+    animation: line 1s linear 0.4s infinite;
+    
+}
+div.box17 .line4 {
+    width: 100px;
+    height: 2px;
+    background-color: blue;
+    transform: rotate(-45deg);
+    position: absolute;
+    margin-left: 1000px;
+    top: 10%;
+    opacity: 0;
+    animation: line 1s linear 0.3s infinite;
+    
+}
+
+@keyframes huojiang {
+    from {
+        transform: translateX(-50px) translateY(-50px);
+    }
+
+    to {
+        transform: translateX(50px) translateY(50px);
+    }
+}
+
+@keyframes line {
+    from {
+        transform: rotate(-45deg) translateX(120px);
+        opacity: 0;
+    }
+
+    to {
+        transform: rotate(-45deg) translateX(-120px);
+        opacity: 1;
+    }
+}
+@keyframes  dh{
+    from {
+        transform:  translateY(-1000px);
+        
+    }
+
+    to {
+        transform: translateY(100px);
+
+    }
+}

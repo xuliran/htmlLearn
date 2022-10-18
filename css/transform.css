@@ -1,0 +1,199 @@
+/* 变形 */
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* 旋转 */
+.img1 {
+    width: 200px;
+    /* 正数表示顺时针，负数表示逆时针 */
+    transform: rotate(45deg);
+}
+
+.img2 {
+    width: 200px;
+    transform: rotate(45deg);
+    /* 设置旋转的中心点 */
+    transform-origin: 0 0;
+}
+
+/* 缩放 */
+.img3 {
+    width: 200px;
+    border: 1px solid black;
+    transform: scale(0.5, 0.3);
+    transform-origin: 0 0;
+}
+
+.img3:hover {
+    transform: scale(1);
+}
+
+/* 斜切变形 */
+.img4 {
+    width: 200px;
+    border: 1px solid black;
+    /* x轴变换角度， y轴变换角度 */
+     /* 正数表示逆时针，负数表示顺时针 */
+    transform: skew(30deg, -40deg);
+}
+
+/* 位移变形 兼容到ie9*/
+.img5 {
+    width: 200px;
+    border: 1px solid black;
+    /* 向右，向下位移， 和绝对定位比较像，老家留坑，绝对定位兼容到ie6 */
+    transform: translate(-50px, 20px);
+
+}
+
+/* 3d旋转 */
+
+/* div包裹p表情或section包裹div标签 */
+.div6, .div7, .div8, .div9{
+    width: 202px;
+    height: 202px;
+    border: 1px solid black;
+    /* 定义透视的强度，人眼到舞台的距离 */
+    perspective: 300px;
+    margin-bottom: 20px;
+}
+.p1 {
+    width: 200px;
+    height: 200px;
+    /* rotateX > 0 向后旋转  rotateY >0 向右转*/
+    transform: rotateX(60deg);
+    background-color: orange;
+    background-image: url(../images/goblin.png);
+   
+}
+
+.p2 {
+    width: 200px;
+    height: 200px;
+    /* rotateX > 0 向后旋转  rotateY >0 向右转*/
+    transform: rotateY(60deg);
+    transform-origin: 30%;
+    background-color: orange;
+    background-image: url(../images/goblin.png);
+}
+
+.p3 {
+    width: 200px;
+    height: 200px;
+    /* rotateX > 0 向后旋转  rotateY >0 向右转*/
+    transform: rotateX(24deg) rotateY(54deg);
+    transform-origin: 30%;
+    background-color: orange;
+    background-image: url(../images/goblin.png);
+}
+
+/* 空间移动，3d 旋转之后，可添加 translateX()，  translateY()，  translateZ()属性让元素在空间中移动*/
+.p4 {
+    width: 200px;
+    height: 200px;
+    /* rotateX > 0 向后旋转  rotateY >0 向右转*/
+    transform: rotateX(24deg) translateZ(30px) translateX(30px) translateY(30px);
+    transform-origin: 30%;
+    background-color: orange;
+    background-image: url(../images/goblin.png);
+    
+}
+
+.div9 {
+    margin-bottom: 200px;
+}
+
+section {
+    
+}
+
+div{
+    margin-top: 100px;
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    /* 定义透视的强度，人眼到舞台的距离 */
+    perspective: 300px;
+    margin-bottom: 20px;
+    position: relative;
+    margin-left: 30px;
+}
+
+section {
+    margin: 100px;
+    width: 200px;
+    height: 200px;
+    perspective: 15000px;
+}
+
+section div {
+    width: 200px;
+    height: 200px;
+    perspective: 15000px;
+    border: 0;
+    position: relative;
+    /* 设置变形类型，保留内部的变形效果 */
+    /* 这个盒子即是舞台，又是演员，使box带动里面整体的p旋转 */
+    transform-style: preserve-3d;
+    transition: transform 10s linear 0s;
+}
+
+section:hover div {
+    transform: rotateX(360deg) rotateY(360deg);
+}
+
+p {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+}
+
+.p5 {
+    background-color: rgba(255, 192, 192, 0.5);
+    transform: translateZ(100px);
+}
+
+.p6 {
+    background-color: rgba(197, 137, 137, 0.5);
+    transform: rotateX(90deg) translateZ(100px);
+}
+
+.p7 {
+    background-color: rgba(139, 86, 86, 0.5);
+    transform: rotateX(180deg) translateZ(100px);
+}
+
+.p8 {
+    background-color: rgba(216, 126, 126);
+    transform: rotateX(-90deg) translateZ(100px);
+}
+
+.p9 {
+    background-color: rgb(141, 58, 58);
+    transform: rotateY(90deg) translateZ(100px);
+}
+
+.p10 {
+    background-color: rgb(134, 41, 41);
+    transform: rotateY(-90deg) translateZ(100px);
+}
+
+.p11 {
+    background-color: rgba(255, 0, 0, 0.473);
+    transform: rotateX(80deg) ;
+}
+
+.p12 {
+    background-color: rgba(0, 0, 255, 0.516);
+    transform: rotateX(80deg) translateZ(30px);
+}
+
+.p13 {
+    background-color: rgba(0, 128, 0, 0.566);
+    transform: rotateX(80deg) translateZ(-30px);
+}
